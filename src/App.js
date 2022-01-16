@@ -20,12 +20,13 @@ export default class App extends Component {
     no: "5001",
     school: "DomLis",
     teacher: "Hasan",
+    title: " Welcome to Main Page",
   };
 
   render() {
     return (
       <>
-        <Header title=" Welcome to Main Page" />
+        <Header content={["Home", "About", "Contact"]} />
         <Body
           name={this.state.name}
           age={this.state.age}
@@ -36,7 +37,81 @@ export default class App extends Component {
     );
   }
 }
+// --------------------CSS styling-------------------------------------------------
+// export default class App extends Component {
+//   state = {
+//     name: "Orhan",
+//     age: 9,
+//     course: "react",
+//     no: "5001",
+//     school: "DomLis",
+//     teacher: "Hasan",
+//     title: " Welcome to Main Page",
+//   };
 
+//   render() {
+//     return (
+//       <>
+//         <Header headerTitle={this.state.title} />
+//         <Body
+//           name={this.state.name}
+//           age={this.state.age}
+//           course={this.state.course}
+//         />
+//         <Footer />
+//       </>
+//     );
+//   }
+// }
+// ----------------------------------------------------------------------------------------------
+
+// Function React------------------------------------------------------------------------
+// const App=()=>{
+
+//   return(
+//     <>
+//     <div className="container">
+//       <div className="row">
+//         <div className="card-group w-100">
+//           <div className="col">
+//             <Collapse href="collapseExample1">
+//               <Card
+//                 cardTitle={this.state.title1}
+//                 cardText={this.state.text1}
+//                 cardImg={this.state.img1}
+//               />
+//             </Collapse>
+//           </div>
+//           <div className="col">
+//             <Collapse href="collapseExample2">
+//               <Card
+//                 cardTitle={this.state.title2}
+//                 cardText={this.state.text2}
+//                 cardImg={this.state.img2}
+//               />
+//             </Collapse>
+//           </div>
+
+//           <div className="col">
+//             <Collapse href="collapseExample3">
+//               <Card
+//                 cardTitle={this.state.title3}
+//                 cardText={this.state.text3}
+//                 cardImg={this.state.img3}
+//               />
+//             </Collapse>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   </>
+
+//   );
+// }
+
+// export default App;
+
+// // Class Component-----------------------------------------------------------------------------------
 // export default class App extends Component {
 //   state = {
 //     title1: "HTML",
@@ -46,36 +121,47 @@ export default class App extends Component {
 //     text2: "Lorem Ipsum Text 2",
 //     text3: "Lorem Ipsum Text 3",
 //     img1: "https://picsum.photos/id/1/200/300",
-//     img2: "https://picsum.photos/id/10/200/300",
-//     img3: "https://picsum.photos/id/100/200/300",
+//     img2: "https://picsum.photos/id/2/200/300",
+//     img3: "https://picsum.photos/id/3/200/300",
 //   };
 
 //   render() {
 //     console.log(this.state);
 //     return (
 //       <>
-//         <div className="card-group">
-//           <Collapse href="collapseExample1">
-//             <Card
-//               cardTitle={this.state.title1}
-//               cardText={this.state.text1}
-//               cardImg={this.state.img1}
-//             />
-//           </Collapse>
-//           <Collapse href="collapseExample2">
-//             <Card
-//               cardTitle={this.state.title2}
-//               cardText={this.state.text2}
-//               cardImg={this.state.img2}
-//             />
-//           </Collapse>
-//           <Collapse href="collapseExample3">
-//             <Card
-//               cardTitle={this.state.title3}
-//               cardText={this.state.text3}
-//               cardImg={this.state.img3}
-//             />
-//           </Collapse>
+//         <div className="container">
+//           <div className="row">
+//             <div className="card-group w-100">
+//               <div className="col">
+//                 <Collapse href="collapseExample1">
+//                   <Card
+//                     cardTitle={this.state.title1}
+//                     cardText={this.state.text1}
+//                     cardImg={this.state.img1}
+//                   />
+//                 </Collapse>
+//               </div>
+//               <div className="col">
+//                 <Collapse href="collapseExample2">
+//                   <Card
+//                     cardTitle={this.state.title2}
+//                     cardText={this.state.text2}
+//                     cardImg={this.state.img2}
+//                   />
+//                 </Collapse>
+//               </div>
+
+//               <div className="col">
+//                 <Collapse href="collapseExample3">
+//                   <Card
+//                     cardTitle={this.state.title3}
+//                     cardText={this.state.text3}
+//                     cardImg={this.state.img3}
+//                   />
+//                 </Collapse>
+//               </div>
+//             </div>
+//           </div>
 //         </div>
 //       </>
 //     );

@@ -7,7 +7,7 @@ export default class Collapse extends Component {
       <div>
         <p>
           <a
-            class="btn btn-primary"
+            class="btn btn-primary w-100"
             data-toggle="collapse"
             href={"#".concat(this.props.href)}
             role="button"

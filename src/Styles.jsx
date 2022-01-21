@@ -21,3 +21,11 @@ export const List = styled.ul`
   width: 100%;
   color: ${(props) => (props.header ? "white" : "black")};
 `;
+
+export const SideBarContainer = styled.div`
+  border: 1px solid black;
+  margin: 2rem;
+  width: 14rem;
+  text-align: center;
+  background-color: #efefef;
+`;

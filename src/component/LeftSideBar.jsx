@@ -1,16 +1,16 @@
 import React, { Component } from "react";
-import { List } from "../Styles";
+import { List, SideBarContainer } from "../Styles";
 
 export default class LeftSideBar extends Component {
   render() {
     return (
-      <div>
+      <SideBarContainer>
         <List>
           {this.props.content.map((element, index) => (
             <li key={index}>{element}</li>
           ))}
         </List>
-      </div>
+      </SideBarContainer>
     );
   }
 }

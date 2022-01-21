@@ -12,31 +12,113 @@ import Header from "./component/Header";
 import Body from "./component/Body";
 import Footer from "./component/Footer";
 
+// -----------------location-----------------------------
 export default class App extends Component {
-  state = {
-    name: "Orhan",
-    age: 9,
-    course: "react",
-    no: "5001",
-    school: "DomLis",
-    teacher: "Hasan",
-    title: " Welcome to Main Page",
-  };
+  constructor() {
+    super();
 
-  render() {
-    return (
-      <>
-        <Header content={["Home", "About", "Contact"]} />
-        <Body
-          name={this.state.name}
-          age={this.state.age}
-          course={this.state.course}
-        />
-        <Footer />
-      </>
+    this.state = {
+      latitude: "",
+      message: "",
+    };
+  }
+
+  componentDidUpdate() {
+    console.log("componentDidUpdate");
+  }
+
+  componentDidMount() {
+    window.navigator.geolocation.getCurrentPosition(
+      (position) => {
+        setTimeout(() => {
+          this.setState({ latitude: position.coords.latitude });
+        }, 1000);
+      },
+      (error) => {
+        setTimeout(() => {
+          this.setState({ message: error.message });
+        }, 1000);
+      }
     );
   }
+
+  render() {
+    if (this.state.latitude && !this.state.message)
+      return <h1>Latitude : {this.state.latitude}</h1>;
+
+    if (!this.state.latitude && this.state.message)
+      return <h1>Error : {this.state.message} </h1>;
+
+    return <h1>Loading.... </h1>;
+  }
 }
+
+// react und Components Life cycle-----------------------------------------------------------------
+// export default class App extends Component {
+//   constructor() {
+//     super();
+//     this.state = {
+//       name: "Orhan",
+//       age: 9,
+//       course: "react",
+//       number: 5001,
+//     };
+
+//     console.log("constructor");
+//   }
+
+//   componentDidMount() {
+//     console.log("componentDidMount");
+//   }
+
+//   componentDidUpdate() {
+//     console.log("componentDidUpdate");
+//   }
+
+//   changeNumber = () => {
+//     this.setState({ no: this.state.number + 1 });
+//   };
+
+//   render() {
+//     console.log("render");
+//     return (
+//       <>
+//         App
+//         <br />
+//         number: {this.state.number}
+//         <br />
+//         <button onClick={this.changeNumber}>Change number</button>
+//       </>
+//     );
+//   }
+// }
+
+// --------------------CSS styling-------------------------------------------------
+// export default class App extends Component {
+//   state = {
+//     name: "Orhan",
+//     age: 9,
+//     course: "react",
+//     no: "5001",
+//     school: "DomLis",
+//     teacher: "Hasan",
+//     title: " Welcome to Main Page",
+//   };
+
+//   render() {
+//     return (
+//       <>
+//         <Header content={["Home", "About", "Contact"]} />
+//         <Body
+//           name={this.state.name}
+//           age={this.state.age}
+//           course={this.state.course}
+//         />
+//         <Footer platform="Amazon" phone="Iphone" beverage="Tea" />
+//       </>
+//     );
+//   }
+// }
 // --------------------CSS styling-------------------------------------------------
 // export default class App extends Component {
 //   state = {
@@ -66,48 +148,48 @@ export default class App extends Component {
 // ----------------------------------------------------------------------------------------------
 
 // Function React------------------------------------------------------------------------
-// const App=()=>{
 
-//   return(
+// const App = () => {
+
+//   return (
 //     <>
-//     <div className="container">
-//       <div className="row">
-//         <div className="card-group w-100">
-//           <div className="col">
-//             <Collapse href="collapseExample1">
-//               <Card
-//                 cardTitle={this.state.title1}
-//                 cardText={this.state.text1}
-//                 cardImg={this.state.img1}
-//               />
-//             </Collapse>
-//           </div>
-//           <div className="col">
-//             <Collapse href="collapseExample2">
-//               <Card
-//                 cardTitle={this.state.title2}
-//                 cardText={this.state.text2}
-//                 cardImg={this.state.img2}
-//               />
-//             </Collapse>
-//           </div>
+//       <div className="container">
+//         <div className="row">
+//           <div className="card-group w-100">
+//             <div className="col">
+//               <Collapse href="collapseExample1">
+//                 <Card
+//                   cardTitle={this.state.title1}
+//                   cardText={this.state.text1}
+//                   cardImg={this.state.img1}
+//                 />
+//               </Collapse>
+//             </div>
+//             <div className="col">
+//               <Collapse href="collapseExample2">
+//                 <Card
+//                   cardTitle={this.state.title2}
+//                   cardText={this.state.text2}
+//                   cardImg={this.state.img2}
+//                 />
+//               </Collapse>
+//             </div>
 
-//           <div className="col">
-//             <Collapse href="collapseExample3">
-//               <Card
-//                 cardTitle={this.state.title3}
-//                 cardText={this.state.text3}
-//                 cardImg={this.state.img3}
-//               />
-//             </Collapse>
+//             <div className="col">
+//               <Collapse href="collapseExample3">
+//                 <Card
+//                   cardTitle={this.state.title3}
+//                   cardText={this.state.text3}
+//                   cardImg={this.state.img3}
+//                 />
+//               </Collapse>
+//             </div>
 //           </div>
 //         </div>
 //       </div>
-//     </div>
-//   </>
-
+//     </>
 //   );
-// }
+// };
 
 // export default App;
 
@@ -116,7 +198,7 @@ export default class App extends Component {
 //   state = {
 //     title1: "HTML",
 //     title2: "CSS",
-//     title3: "React",
+//     title3: "REACT",
 //     text1: "Lorem Ipsum Text 1",
 //     text2: "Lorem Ipsum Text 2",
 //     text3: "Lorem Ipsum Text 3",

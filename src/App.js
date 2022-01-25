@@ -11,47 +11,106 @@ import Collapse from "./component/Collapse";
 import Header from "./component/Header";
 import Body from "./component/Body";
 import Footer from "./component/Footer";
+import SearchBar from "./component/SearchBar";
 
-// -----------------location-----------------------------
+// onSubmit -----Search-----------------------------------------------------------
 export default class App extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      latitude: "",
-      message: "",
-    };
-  }
-
-  componentDidUpdate() {
-    console.log("componentDidUpdate");
-  }
-
-  componentDidMount() {
-    window.navigator.geolocation.getCurrentPosition(
-      (position) => {
-        setTimeout(() => {
-          this.setState({ latitude: position.coords.latitude });
-        }, 1000);
-      },
-      (error) => {
-        setTimeout(() => {
-          this.setState({ message: error.message });
-        }, 1000);
-      }
-    );
-  }
-
+  handleFormSubmit = (term) => {
+    console.log(term);
+  };
   render() {
-    if (this.state.latitude && !this.state.message)
-      return <h1>Latitude : {this.state.latitude}</h1>;
-
-    if (!this.state.latitude && this.state.message)
-      return <h1>Error : {this.state.message} </h1>;
-
-    return <h1>Loading.... </h1>;
+    return <SearchBar handleFormSubmit={this.handleFormSubmit} />;
   }
 }
+// React Events---onClick--onSubmit------------------------------------
+// export default class App extends Component {
+//   state = {
+//     value: "",
+//   };
+//   // handleClick = () => {
+//   //   console.log("clicked");
+//   // };
+
+//   handleChange = () => {
+//     console.log("changed");
+//   };
+
+//   handleInputChange = (e) => {
+//     console.log(e.target);
+//     this.setState({ value: e.target.value });
+//   };
+
+//   render() {
+//     return (
+//       <div className="input-card">
+//         <form action="">
+//           <label htmlFor="">Enter a search</label> <br />
+//           {/* <input onClick={this.handleClick} type="text" /> */}
+//           {/* <input onChange={this.handleChange} type="text" /> */}
+//           {/* <input onChange={(e) => console.log(e.target.value)} type="text" /> */}
+//           {/* <input
+//             onChange={this.handleInputChange}
+//             type="text"
+//             value={this.state.value}
+//           /> */}
+//           <input
+//             onChange={this.handleInputChange}
+//             type="password"
+//             value={this.state.value}
+//           />
+//         </form>
+//         {/* <h1>Value :{this.state.value}</h1> */}
+//         {/* {this.state.value.length <= 4 ? (
+//           <h1>Password must be longer than 4 characters</h1>
+//         ) : null} */}
+//         {this.state.value.length <= 4 && (
+//           <h1>Password must be longer than 4 characters</h1>
+//         )}
+//       </div>
+//     );
+//   }
+// }
+
+// -----------------location-----------------------------
+// export default class App extends Component {
+//   constructor() {
+//     super();
+
+//     this.state = {
+//       latitude: "",
+//       message: "",
+//     };
+//   }
+
+//   componentDidUpdate() {
+//     console.log("componentDidUpdate");
+//   }
+
+//   componentDidMount() {
+//     window.navigator.geolocation.getCurrentPosition(
+//       (position) => {
+//         setTimeout(() => {
+//           this.setState({ latitude: position.coords.latitude });
+//         }, 1000);
+//       },
+//       (error) => {
+//         setTimeout(() => {
+//           this.setState({ message: error.message });
+//         }, 1000);
+//       }
+//     );
+//   }
+
+//   render() {
+//     if (this.state.latitude && !this.state.message)
+//       return <h1>Latitude : {this.state.latitude}</h1>;
+
+//     if (!this.state.latitude && this.state.message)
+//       return <h1>Error : {this.state.message} </h1>;
+
+//     return <h1>Loading.... </h1>;
+//   }
+// }
 
 // react und Components Life cycle-----------------------------------------------------------------
 // export default class App extends Component {

@@ -6,7 +6,7 @@ export default class SearchBar extends Component {
   };
 
   handleInputChange = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     this.setState({ term: e.target.value });
   };
 
@@ -18,16 +18,18 @@ export default class SearchBar extends Component {
 
   render() {
     return (
-      <div className="input-card">
-        <form onSubmit={this.handleSubmit} action="">
-          <label htmlFor="">Enter a search</label> <br />
-          <input
-            onChange={this.handleInputChange}
-            type="text"
-            value={this.state.value}
-          />
-          <input type="submit" value="Submit" style={{ margin: "10px" }} />
-        </form>
+      <div className="input-container">
+        <div className="input-card">
+          <form onSubmit={this.handleSubmit} action="">
+            <label htmlFor="">Enter a search</label> <br />
+            <input
+              onChange={this.handleInputChange}
+              type="text"
+              value={this.state.value}
+            />
+            <input type="submit" value="Submit" style={{ margin: "10px" }} />
+          </form>
+        </div>
       </div>
     );
   }

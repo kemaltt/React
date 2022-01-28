@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+body {
+    background-image: url();
+}
+
 .App {
     text-align: center;
 }
@@ -42,13 +46,36 @@
     }
 }
 
+.input-container {
+    display: flex;
+    justify-content: center;
+}
+
 .input-card {
     text-align: center;
-    width: 100%;
-    height: 30%;
+    width: 60%;
     margin-top: 15px;
     padding: 10px;
     border: solid 1px;
     border-radius: 10px;
     box-shadow: -1px 2px 15px 3px #000000;
+}
+
+.img-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+    margin: 2rem;
+}
+
+.img-body {
+    margin: 1rem;
+}
+
+img {
+    width: 400px;
+    height: 250px;
+    border-radius: 1rem;
+    margin-bottom: 0.5rem;
 }

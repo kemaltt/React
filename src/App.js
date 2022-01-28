@@ -12,14 +12,32 @@ import Header from "./component/Header";
 import Body from "./component/Body";
 import Footer from "./component/Footer";
 import SearchBar from "./component/SearchBar";
+import ImageList from "./component/ImageList";
+import axios from "axios";
 
 // onSubmit -----Search-----------------------------------------------------------
 export default class App extends Component {
-  handleFormSubmit = (term) => {
-    console.log(term);
+  state = {
+    images: [],
   };
+  handleFormSubmit = async (term) => {
+    const response = await axios.get("https://api.unsplash.com/search/photos", {
+      params: { query: term },
+      headers: {
+        Authorization: "Client-ID GBN-Lo3fx8kNU0nN4N2yL_cmI-DpPyc-zAlqXkLoNzw",
+      },
+    });
+    console.log(response);
+    this.setState({ images: response.data.results });
+  };
+
   render() {
-    return <SearchBar handleFormSubmit={this.handleFormSubmit} />;
+    return (
+      <div>
+        <SearchBar handleFormSubmit={this.handleFormSubmit} />
+        <ImageList images={this.state.images} />
+      </div>
+    );
   }
 }
 // React Events---onClick--onSubmit------------------------------------

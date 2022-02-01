@@ -1,4 +1,4 @@
-import logo from "./logo.svg";
+import React from "react";
 import "./App.css";
 import { Component } from "react";
 import Example1 from "./component/Example1";
@@ -14,32 +14,52 @@ import Footer from "./component/Footer";
 import SearchBar from "./component/SearchBar";
 import ImageList from "./component/ImageList";
 import axios from "axios";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Contact from "./component/Contact";
+import AboutUs from "./component/AboutUs";
+import Main from "./component/Main";
+import UserInfo from "./component/UserInfo";
 
-// onSubmit -----Search-----------------------------------------------------------
-export default class App extends Component {
-  state = {
-    images: [],
-  };
-  handleFormSubmit = async (term) => {
-    const response = await axios.get("https://api.unsplash.com/search/photos", {
-      params: { query: term },
-      headers: {
-        Authorization: "Client-ID GBN-Lo3fx8kNU0nN4N2yL_cmI-DpPyc-zAlqXkLoNzw",
-      },
-    });
-    console.log(response);
-    this.setState({ images: response.data.results });
-  };
+// react Router 6----------------------------------------------------------
 
-  render() {
-    return (
-      <div>
-        <SearchBar handleFormSubmit={this.handleFormSubmit} />
-        <ImageList images={this.state.images} />
-      </div>
-    );
-  }
+export default function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/about-us" element={<AboutUs />} />
+        <Route path="/user-info/:id" element={<UserInfo />} />
+      </Routes>
+    </Router>
+  );
 }
+
+// // onSubmit -----Search-----------------------------------------------------------
+// export default class App extends Component {
+//   state = {
+//     images: [],
+//   };
+//   handleFormSubmit = async (term) => {
+//     const response = await axios.get("https://api.unsplash.com/search/photos", {
+//       params: { query: term },
+//       headers: {
+//         Authorization: "Client-ID GBN-Lo3fx8kNU0nN4N2yL_cmI-DpPyc-zAlqXkLoNzw",
+//       },
+//     });
+//     console.log(response);
+//     this.setState({ images: response.data.results });
+//   };
+
+//   render() {
+//     return (
+//       <div>
+//         <SearchBar handleFormSubmit={this.handleFormSubmit} />
+//         <ImageList images={this.state.images} />
+//       </div>
+//     );
+//   }
+// }
 // React Events---onClick--onSubmit------------------------------------
 // export default class App extends Component {
 //   state = {

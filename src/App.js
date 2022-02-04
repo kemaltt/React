@@ -15,10 +15,10 @@ import SearchBar from "./component/SearchBar";
 import ImageList from "./component/ImageList";
 import axios from "axios";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Contact from "./component/Contact";
-import AboutUs from "./component/AboutUs";
-import Main from "./component/Main";
-import UserInfo from "./component/UserInfo";
+import Contact from "./component/Router/Contact";
+import AboutUs from "./component/Router/AboutUs";
+import Mainn from "./component/Router/Mainn";
+import UserInfo from "./component/Router/UserInfo";
 
 // react Router 6----------------------------------------------------------
 
@@ -26,7 +26,7 @@ export default function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Main />} />
+        <Route path="/" element={<Mainn />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/user-info/:id" element={<UserInfo />} />

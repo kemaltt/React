@@ -29,7 +29,7 @@ export default function App() {
         <Route path="/" element={<Mainn />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about-us" element={<AboutUs />} />
-        <Route path="/user-info/:id" element={<UserInfo />} />
+        <Route path="/user-info/:userId" element={<UserInfo />} />
       </Routes>
     </Router>
   );

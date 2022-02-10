@@ -19,21 +19,31 @@ import Contact from "./component/Router/Contact";
 import AboutUs from "./component/Router/AboutUs";
 import Mainn from "./component/Router/Mainn";
 import UserInfo from "./component/Router/UserInfo";
-
-// react Router 6----------------------------------------------------------
+import Child from "./component/Contex/Child";
+import { CounterProvider } from "./contexts/CounterContext";
 
 export default function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Mainn />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/about-us" element={<AboutUs />} />
-        <Route path="/user-info/:userId" element={<UserInfo />} />
-      </Routes>
-    </Router>
+    <CounterProvider>
+      <Child />
+    </CounterProvider>
   );
 }
+
+// // react Router 6----------------------------------------------------------
+
+// export default function App() {
+//   return (
+//     <Router>
+//       <Routes>
+//         <Route path="/" element={<Mainn />} />
+//         <Route path="/contact" element={<Contact />} />
+//         <Route path="/about-us" element={<AboutUs />} />
+//         <Route path="/user-info/:userId" element={<UserInfo />} />
+//       </Routes>
+//     </Router>
+//   );
+// }
 
 // // onSubmit -----Search-----------------------------------------------------------
 // export default class App extends Component {
